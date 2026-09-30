@@ -1,0 +1,14 @@
+python adaptation.py \
+    --model_name test \
+    --dataset kitti_c \
+    --load_weights_folder ./exp_logs/kitti_sup/models/weights_19 \
+    --models_to_load encoder depth \
+    --reg_path ./exp_logs/kitti_unsup/models/weights_19 \
+    --thres 0.4 \
+    --learning_rate 1e-5 \
+    --num_workers 0 \
+    --data_path /datasets/KITTI \
+    --frame_ids 0 -1 \
+    --png \
+    --corruption impulse_noise \
+    --severity 1

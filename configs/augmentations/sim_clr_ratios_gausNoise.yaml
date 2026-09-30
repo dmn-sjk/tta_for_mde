@@ -1,0 +1,33 @@
+# SimCLR augmentation preset
+# Pipeline: RandomApply(ColorJitter) → RandomGrayscale → RandomApply(GaussianBlur)
+#           → RandomHorizontalFlip
+
+photo:
+    - random_apply:
+        p: 0.8
+        transforms:
+        - color_jitter:
+            brightness: 0.8
+            contrast: 0.8
+            saturation: 0.8
+            hue: 0.2
+
+    - random_grayscale:
+        p: 0.2
+
+    - random_apply:
+        p: 0.5
+        transforms:
+        - gaussian_blur:
+            kernel_size: 13
+            sigma: [0.1, 2.0]
+    
+    - gaussian_noise:
+        mean: 0
+        std: 0.005
+        clip: true
+
+    # - random_horizontal_flip: {}
+geom:
+    img_ratios: [0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0]
+    flip: true # random flip handled in a consistency.py

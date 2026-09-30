@@ -1,0 +1,16 @@
+*.pyc
+events.out*
+*.pth
+exp_logs/*
+*.pdf
+*.out
+*.npy
+*.tar.gz
+__pycache__/*
+*.png
+playground*
+ckpt/*
+*.npz
+*.pt
+*.json
+notebooks/*
